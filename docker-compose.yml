@@ -1,0 +1,12 @@
+version: "3.5"
+
+services:
+  otel:
+    image: docker.io/library/otelcol
+    #entrypoint: '/mnt/config/collector/test.sh'
+    environment:
+      "SPLUNK_ACCESS_TOKEN": "12345"
+      "SPLUNK_REALM": "us0"
+      "SPLUNK_CONFIG": "/mnt/config/collector/vizio_config.yaml"
+    volumes:
+      - "./cmd/otelcol/config:/mnt/config"
